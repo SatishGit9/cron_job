@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  player_data_updater:
+    build: .
+    container_name: player_data_updater
+    volumes:
+      - ./database.db:/app/database.db  # Maps the SQLite database file to persist data
+    env_file:
+      - .env  # Load environment variables from the .env file
+    command: python main.py  # Run the main script
